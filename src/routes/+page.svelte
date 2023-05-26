@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 
 	import * as Threlte from '@threlte/core';
-	import * as Three from 'three';
 	import { GLTF } from '@threlte/extras';
+	import * as Three from 'three';
 
 	let camera = {
 		position: { x: 10, y: 10, z: 10 },
@@ -25,10 +26,10 @@
 		requestAnimationFrame(float);
 	}
 
+	if (browser) {
+		float();
+	}
 
-
-	const gridHelper = new Three.GridHelper(20, 10);
-	const axesHelper = new Three.AxesHelper(10);
 </script>
 
 <Threlte.Canvas rendererParameters={{ antialias: true }}>
